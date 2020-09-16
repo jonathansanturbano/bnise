@@ -1,12 +1,26 @@
-.navbar-lewagon {
+.bnavbar {
+  display: flex;
   justify-content: space-between;
-  background: white;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+i {
+  list-style: none;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+ul li {
+  list-style: none;
+  display: none;
+}
+
+@media (min-width: 360px) {
+  .bnavbar {
+    padding: 20px 38px;
+  }
 }

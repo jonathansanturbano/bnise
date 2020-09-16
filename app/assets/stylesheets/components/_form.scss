@@ -1,0 +1,40 @@
+.form{
+  label{
+   font-weight: bold;
+  }
+
+  input{
+    width: 200px;
+  }
+
+  textarea{
+    margin-bottom: 30px;
+    width: 200px;
+  }
+}
+
+@media (min-width: 350px) {
+  .form{
+     input{
+       width: 300px;
+     }
+
+     textarea{
+       margin-bottom: 30px;
+       width: 300px;
+     }
+   }
+}
+
+@media (min-width: 576px) {
+  .form{
+     input{
+       width: 400px;
+     }
+
+     textarea{
+       margin-bottom: 30px;
+       width: 400px;
+     }
+   }
+}

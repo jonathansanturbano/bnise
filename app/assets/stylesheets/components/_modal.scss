@@ -1,0 +1,55 @@
+.bmodal{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  .bmodal {
+    width: 30%;
+    right: 0;
+    background-color: white;
+  }
+}
+
+.modal-content{
+  width: 95%;
+  height: 95%;
+  background-color: white;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+
+  a{
+    margin: 1.5rem;
+    font-size: 2rem;
+  }
+}
+
+.close{
+  position: absolute;
+  top: 6px;
+  right: 14px;
+  font-size: 32px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+#dropdown{
+  cursor: pointer;
+}
+
+.links{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 50px;
+}

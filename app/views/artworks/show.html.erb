@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="text-center col-sm-12 col-lg-6 pb-3">
+    <%= cl_image_tag @artwork.photos.first.key, class: "product-focus" %>
+  </div>
+  <div class="text-center col-sm-12 col-lg-6">
+    <h1 class="pb-3"><%= @artwork.name %> <span>(<%= humanized_money_with_symbol(@artwork.price) %>)</span></h1>
+    <p><%= @artwork.description %></p>
+  <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'artwork_id', @artwork.id %>
+    <%= submit_tag 'Purchase', class: 'mybutton' %>
+  <% end %>
+  </div>
+</div>

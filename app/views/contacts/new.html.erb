@@ -1,0 +1,35 @@
+<div class="text-center">
+<h1 class="py-3">HIT ME UP</h1>
+
+  <div class="form">
+
+    <%= form_for @contact do |f| %>
+      <div class="minline">
+        <%= f.label :name %> <br>
+        <%= f.text_field :name, required: true %>
+      </div>
+      <br>
+
+      <div class="minline">
+        <%= f.label :email %> <br>
+        <%= f.email_field :email, required: true %>
+      </div>
+      <br>
+
+      <%= f.label :message %> <br>
+      <%= f.text_area :message, as: :text %>
+
+      <br>
+
+      <div class="hidden">
+        <%= f.label :nickname %> <br>
+        <%= f.text_field :nickname, hint: 'leave this field blank' %>
+      </div>
+
+      <%= f.submit 'Send Message', class: "mybutton" %>
+
+    <% end %>
+
+  </div>
+
+</div>

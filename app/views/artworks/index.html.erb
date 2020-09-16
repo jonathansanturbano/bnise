@@ -1,0 +1,17 @@
+<% provide(:title, 'artworks') %>
+
+<div class="cards">
+  <% @artworks.each do |artwork|%>
+      <div class="card">
+    <%= link_to artwork_path(artwork) do %>
+        <div>
+          <%= cl_image_tag artwork.photos.first.key, height: 250, width: 250, crop: :fill %>
+        </div>
+        <div class="product-info">
+          <h2> <%= artwork.name %> </h2>
+          <p class="price"> <%= humanized_money_with_symbol(artwork.price) %></p>
+        </div>
+    <% end %>
+      </div>
+  <% end %>
+</div>

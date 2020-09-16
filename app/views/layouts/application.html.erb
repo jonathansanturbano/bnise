@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bnise</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= render 'layouts/rails_default' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'layouts/navbar' unless controller_name == "orders" && action_name =="show" %>
+    <% unless controller_name == "orders" && action_name =="show"  %>
+      <div class="container" style="display: flex; justify-content: center; padding-top: 1rem">
+    <% end %>
+      <%= yield %>
+    </div>
+    <% unless controller_name == "orders" && action_name =="show"  %>
+      <%= render 'layouts/footer' %>
+    <% end %>
   </body>
 </html>
