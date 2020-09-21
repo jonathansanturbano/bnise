@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_163837) do
+ActiveRecord::Schema.define(version: 2020_09_21_142552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,23 @@ ActiveRecord::Schema.define(version: 2020_09_16_163837) do
     t.integer "price_cents", default: 0, null: false
   end
 
+  create_table "basket_items", force: :cascade do |t|
+    t.bigint "artwork_id", null: false
+    t.bigint "basket_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artwork_id"], name: "index_basket_items_on_artwork_id"
+    t.index ["basket_id"], name: "index_basket_items_on_basket_id"
+  end
+
+  create_table "baskets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "state"
+    t.index ["user_id"], name: "index_baskets_on_user_id"
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -90,4 +107,7 @@ ActiveRecord::Schema.define(version: 2020_09_16_163837) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "basket_items", "artworks"
+  add_foreign_key "basket_items", "baskets"
+  add_foreign_key "baskets", "users"
 end

@@ -4,13 +4,13 @@
     <%= render 'layouts/rails_default' %>
   </head>
   <body>
-    <%= render 'layouts/navbar' unless controller_name == "orders" && action_name =="show" %>
-    <% unless controller_name == "orders" && action_name =="show"  %>
+    <%= render 'layouts/navbar' unless controller_name == "payments" && action_name =="show" %>
+    <% unless controller_name == "payments" && action_name =="show"  %>
       <div class="container" style="display: flex; justify-content: center; padding-top: 1rem">
     <% end %>
       <%= yield %>
     </div>
-    <% unless controller_name == "orders" && action_name =="show"  %>
+    <% unless controller_name == "payments" && action_name =="show"  %>
       <%= render 'layouts/footer' %>
     <% end %>
   </body>

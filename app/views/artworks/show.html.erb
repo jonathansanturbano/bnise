@@ -3,11 +3,25 @@
     <%= cl_image_tag @artwork.photos.first.key, class: "product-focus" %>
   </div>
   <div class="text-center col-sm-12 col-lg-6">
-    <h1 class="pb-3"><%= @artwork.name %> <span>(<%= humanized_money_with_symbol(@artwork.price) %>)</span></h1>
+    <% if @artwork.sold == false %>
+      <h1 class="pb-3"><%= @artwork.name %> <span>(<%= humanized_money_with_symbol(@artwork.price) %>)</span></h1>
+    <% else %>
+      <h1 class="pb-3">
+        <div class="sold-show">
+          <%= @artwork.name %>
+          <span>
+            (<%= humanized_money_with_symbol(@artwork.price) %>)
+          </span>
+        </div>
+        SOLD
+      </h1>
+    <% end %>
     <p><%= @artwork.description %></p>
-  <%= form_tag orders_path do %>
-    <%= hidden_field_tag 'artwork_id', @artwork.id %>
-    <%= submit_tag 'Purchase', class: 'mybutton' %>
-  <% end %>
+
+    <% if @artwork.sold == false %>
+      <%= form_tag artwork_basket_items_path(@artwork) do %>
+        <%= submit_tag 'Purchase', class: 'mybutton' %>
+      <% end %>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,24 @@
+<% provide(:title, 'Basket') %>
+
+<div>
+
+  <div class=cards>
+    <% @order.orderItems.each do |orderItem| %>
+      <div class="card">
+        <div>
+          <%= cl_image_tag orderItem.artwork.photos.first.key, height: 250, width: 250, crop: :fill %>
+        </div>
+        <div class="product-info">
+          <h2> <%= orderItem.artwork.name %> </h2>
+          <p class="price"> <%= humanized_money_with_symbol(orderItem.artwork.price) %></p>
+        </div>
+        <div class="item-delete">
+          <%= link_to "X", order_item_path(orderItem), method: "delete"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+</div>
