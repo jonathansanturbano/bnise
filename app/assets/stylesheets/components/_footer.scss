@@ -1,11 +1,19 @@
 .bfooter {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 30px 30px;
-  margin-top: 20px;
-  position: static;
+  position: sticky;
   bottom: 0;
   width: 100%;
+  background-color: white;
+  border-top: 2.6px rgba(110, 110, 110, 0.1) solid;
+  height: 100px;
 }
+
+// @media (min-width: 992px) {
+//   .bfooter {
+//     background-color: transparent;
+//     border-top: transparent;
+//   }
+// }

@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :baskets
   has_many :artworks
+  has_many :orders, through: :baskets
 end

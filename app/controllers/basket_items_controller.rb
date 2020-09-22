@@ -7,8 +7,12 @@ class BasketItemsController < ApplicationController
 
   def destroy
     basket_item = BasketItem.find(params[:id])
+    artwork = basket_item.artwork
     basket_item.destroy
-    basket = current_user.baskets.where(state: "pending")
-    redirect_to basket_path
+    if request.referrer == artwork_url(artwork.id)
+      redirect_to artwork_path(artwork.id)
+    else
+      redirect_to basket_path
+    end
   end
 end

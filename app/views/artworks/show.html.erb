@@ -1,7 +1,19 @@
 <div class="row">
-  <div class="text-center col-sm-12 col-lg-6 pb-3">
-    <%= cl_image_tag @artwork.photos.first.key, class: "product-focus" %>
+  <div class="col-sm-12 col-lg-6 pb-3">
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% @artwork.photos.each do |photo| %>
+          <div class="swiper-slide" data-swiper-autoplay="2000">
+            <%= cl_image_tag(photo.key, :gravity=> "south", class: "w-100") %>
+          </div>
+        <% end %>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
   </div>
+
   <div class="text-center col-sm-12 col-lg-6">
     <% if @artwork.sold == false %>
       <h1 class="pb-3"><%= @artwork.name %> <span>(<%= humanized_money_with_symbol(@artwork.price) %>)</span></h1>
@@ -18,10 +30,21 @@
     <% end %>
     <p><%= @artwork.description %></p>
 
-    <% if @artwork.sold == false %>
-      <%= form_tag artwork_basket_items_path(@artwork) do %>
-        <%= submit_tag 'Purchase', class: 'mybutton' %>
-      <% end %>
+    <% if @artwork.sold == false && !@basket.basketItems.find_by(artwork: @artwork) %>
+      <div class="my-4">
+        <%= form_tag artwork_basket_items_path(@artwork) do %>
+          <%= submit_tag 'Add to Basket', class: 'mybutton' %>
+        <% end %>
+      </div>
     <% end %>
+
+    <% if @basket.basketItems.find_by(artwork: @artwork) %>
+      <div class="my-4">
+        <%= form_tag(basket_item_path(@basket.basketItems.find_by(artwork: @artwork)), method: 'delete') do %>
+          <%= submit_tag 'Remove', class: 'mybutton' %>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 </div>

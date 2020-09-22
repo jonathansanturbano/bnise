@@ -25,10 +25,14 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initModalOnClick } from '../components/modal';
+import { initSwiper } from '../components/swiper';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   initModalOnClick();
+  if(document.querySelector(".swiper-container")) {
+    initSwiper();
+  };
 });

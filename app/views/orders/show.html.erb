@@ -1,19 +1,31 @@
-<% provide(:title, 'Basket') %>
+<% provide(:title, 'Order') %>
 
 <div>
 
-  <div class=cards>
-    <% @order.orderItems.each do |orderItem| %>
+<h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
+
+  <h2><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></h2>
+
+  <% @order.basket.basketItems.each do |item| %>
+    <li><strong><%= item.artwork.name %></strong> - <%= item.artwork.price %></li>
+  <% end %>
+
+
+  <strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
+
+  <% if @basket.basketItems.count == 1 %>
+    <div class=cards-single>
+  <% else %>
+    <div class="cards-double">
+  <% end %>
+    <% @basket.basketItems.each do |item| %>
       <div class="card">
         <div>
-          <%= cl_image_tag orderItem.artwork.photos.first.key, height: 250, width: 250, crop: :fill %>
+          <%= cl_image_tag item.artwork.photos.first.key, height: 250, width: 250, crop: :fill %>
         </div>
         <div class="product-info">
-          <h2> <%= orderItem.artwork.name %> </h2>
-          <p class="price"> <%= humanized_money_with_symbol(orderItem.artwork.price) %></p>
-        </div>
-        <div class="item-delete">
-          <%= link_to "X", order_item_path(orderItem), method: "delete"%>
+          <h2> <%= item.artwork.name %> </h2>
+          <p class="price"> <%= humanized_money_with_symbol(item.artwork.price) %></p>
         </div>
       </div>
     <% end %>

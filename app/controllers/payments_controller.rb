@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
   def new
-    @order = current_user.orders.where(state: 'pending').find(params[:order_id])
+    @order = Order.find_by(basket: @basket)
   end
 end

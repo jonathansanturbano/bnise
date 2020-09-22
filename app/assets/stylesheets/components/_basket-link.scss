@@ -1,0 +1,29 @@
+.basket-setter {
+  position: sticky;
+  top: 103px;
+  z-index: 2;
+  margin-top: -40px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5px;
+}
+
+.basket-link {
+  text-align: right;
+  padding-right: 1rem;
+  background-color: darkgray;
+  width: fit-content;
+  padding: 0.4rem;
+  font-weight: bold;
+  text-decoration: underline double;
+  font-style: oblique;
+  border: 1px black solid;
+  box-shadow: 1px 2px 1px;
+}
+
+@media (min-width: 767px) {
+  .basket-link {
+    margin-right: 2rem;
+    font-size: 1.2rem;
+  }
+}
