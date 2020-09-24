@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
   def new
-    @order = Order.find_by(basket: @basket)
+    @order = Order.where(basket: @basket).last
   end
 end

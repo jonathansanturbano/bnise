@@ -1,26 +1,35 @@
-<div class="container">
-  <div class="row py-4 text-center">
-    <div class="col-md-3"><%= cl_image_tag @basket.basketItems.first.artwork.photos.first.key, width: '100%' %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of
-        <strong>
-          <% @basket.basketItems.each do |item| %>
-            <%= item.artwork.name %>
-          <% end %>
-        </strong>
-        for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="mybutton">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
-          });
-        });
-      </script>
-    </div>
+<% provide(:title, "Checkout") %>
+
+<div class="text-center">
+
+  <h1>Checkout summary</h1>
+
+      <% if @basket.basketItems.count == 1 %>
+        <div class= "cards-single">
+      <% else %>
+        <div class="cards-double">
+      <% end %>
+      <% @basket.basketItems.each do |item| %>
+        <div>
+          <%= cl_image_tag(item.artwork.photos.first.key, height: 250, width: 250, crop: :fill) %>
+          <p><%= item.artwork.name %><span> - <%= humanized_money_with_symbol item.artwork.price %></span></p>
+        </div>
+      <% end %>
+      </div>
+  <div class="price-total">
+    <p>TOTAL</p>
+    <p><%= humanized_money_with_symbol @order.amount %></p>
   </div>
+
+  <button id="pay" class="mybutton">Pay</button>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const paymentButton = document.getElementById('pay');
+    paymentButton.addEventListener('click', () => {
+      const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+      stripe.redirectToCheckout({
+        sessionId: '<%= @order.checkout_session_id %>'
+      });
+    });
+  </script>
 </div>

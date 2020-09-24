@@ -1,11 +1,21 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.cards-single {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.cards-double {
+  display: grid;
   grid-gap: 20px;
 }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
+
   .cards-single {
     grid-template-columns: 1fr;
   }

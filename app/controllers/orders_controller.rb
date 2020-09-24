@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
+  skip_before_action :set_basket, only: :show
 
   def show
+    @basket = current_user.baskets.last
     @order = Order.find_by(basket: @basket)
   end
 
@@ -13,7 +15,13 @@ class OrdersController < ApplicationController
       total_price += item.artwork.price
     end
 
-    order = Order.create!(amount: total_price, state: "pending", basket: @basket)
+    order = Order.find_by(basket: @basket)
+
+    if order.nil?
+      order = Order.create!(amount: total_price, state: "pending", basket: @basket)
+    else
+      order.update(amount: total_price)
+    end
 
     @basket.basketItems.each do |item|
       new_item = {
