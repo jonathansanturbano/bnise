@@ -7,5 +7,6 @@ class StripeCheckoutSessionService
       artwork = Artwork.find(item.artwork_id)
       artwork.update(sold: true)
     end
+    raise
   end
 end
