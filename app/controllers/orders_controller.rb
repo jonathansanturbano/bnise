@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     @basket.basketItems.each do |item|
       new_item = {
         name: item.artwork.name,
-        images: [item.artwork.photos.first],
+        # images: ["https://bnise.herokuapp.com/assets/white_logo_cropped-834dfd6d8fb58736072fa5820f673595570c8476b134852daa3369ab5000e7d0.png"],
         amount: item.artwork.price_cents,
         currency: 'eur',
         quantity: 1
@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
       payment_method_types: ['card'],
       line_items: line_items,
       success_url: order_url(order),
-      cancel_url: order_url(order)
+      cancel_url: basket_url(@basket)
     )
 
     order.update(checkout_session_id: session.id)
