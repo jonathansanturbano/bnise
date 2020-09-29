@@ -1,4 +1,4 @@
-<% unless (controller_name == "baskets" || controller_name == "payments" || controller_name == "orders" || controller_name == "contacts") %>
+<% unless (controller_name == "baskets" || controller_name == "payments" || controller_name == "orders") %>
   <% if user_signed_in? && @basket.basketItems.count > 0 %>
     <div class="basket-setter">
       <%= link_to basket_path(@basket) do %>
