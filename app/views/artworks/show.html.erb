@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row w-100">
   <div class="col-sm-12 col-lg-6 pb-3">
 
     <div class="swiper-container">
@@ -14,7 +14,7 @@
 
   </div>
 
-  <div class="text-center col-sm-12 col-lg-6">
+  <div class="text-center col-sm-12 col-lg-6 artwork-setter">
     <% if @artwork.sold == false %>
       <h1 class="pb-3"><%= @artwork.name %> <span>(<%= humanized_money_with_symbol(@artwork.price) %>)</span></h1>
     <% else %>
@@ -28,7 +28,17 @@
         SOLD
       </h1>
     <% end %>
-    <p><%= @artwork.description %></p>
+    <p class="artwork-description"><%= @artwork.description %></p>
+    <div class="artwork-elements">
+      <div class="artwork-element">
+        <h3>Dimensions</h3>
+        <p><%= @artwork.dimensions %></p>
+      </div>
+      <div class="artwork-element">
+        <h3>Material</h3>
+        <p><%= @artwork.material %></p>
+      </div>
+    </div>
 
     <% if (@artwork.sold == false && !user_signed_in?) || (user_signed_in? && @artwork.sold == false && !@basket.basketItems.find_by(artwork: @artwork)) %>
       <div class="my-4">

@@ -1,0 +1,10 @@
+.about-image {
+  width: 90%;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+  .about-image {
+    width: 65%;
+  }
+}

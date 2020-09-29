@@ -1,6 +1,7 @@
 class Contact < MailForm::Base
-  attribute :name, :validate => true
+  attribute :full_name, :validate => true
   attribute :email, :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+  attribute :subject, :validate => true
   attribute :message, :validate => true
   attribute :nickname, :captcha => true
 
@@ -8,9 +9,9 @@ class Contact < MailForm::Base
   # in ActionMailer accepts.
   def headers
     {
-      :subject => "Contact Form Inquiry",
+      :subject => subject,
       :to => "bnicevlways@gmail.com",
-      :from => %("#{name}" <#{email}>)
+      :from => %("#{full_name}" <#{email}>)
     }
   end
 end

@@ -1,3 +1,7 @@
+// .welcome-setter {
+//   margin-top: 20px;
+// }
+
 @media (orientation: landscape) {
   #welcome-logo {
     height: 65vh;
@@ -6,6 +10,6 @@
 
 @media (orientation: portrait) {
   #welcome-logo {
-    width: 70vw;
+    height: 50vh;
   }
 }

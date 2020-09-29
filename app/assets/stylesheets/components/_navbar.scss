@@ -1,15 +1,27 @@
-.bnavbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 20px;
-  background-color: white;
+.header {
   position: sticky;
   top: 0;
-  width: 100%;
-  height: 100px;
   z-index: 2;
+  background-color: white;
+}
+
+.bnavbar {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
   border-bottom: 2.6px rgba(110, 110, 110, 0.1) solid;
+
+  & > a:first-child {
+    position: absolute;
+    left: 14px;
+    top: 16px;
+  }
+
+  & > a:nth-child(2) {
+    margin: auto;
+  }
 }
 
 i {
@@ -21,8 +33,8 @@ ul li {
   display: none;
 }
 
-@media (min-width: 360px) {
-  .bnavbar {
-    padding: 20px 38px;
-  }
-}
+// @media (min-width: 360px) {
+//   .bnavbar {
+//     padding: 20px 38px;
+//   }
+// }

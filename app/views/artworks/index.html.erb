@@ -1,16 +1,16 @@
 <% provide(:title, 'Artworks') %>
 
-<div class="cards">
+<% if @artworks.count > 1 %>
+  <div class="cards cards-double">
+<% else %>
+  <div class="cards cards-single">
+<% end %>
   <% @artworks.each do |artwork|%>
     <% if artwork.sold == false %>
       <div class="card">
         <%= link_to artwork_path(artwork) do %>
           <div>
             <%= cl_image_tag artwork.photos.first.key, height: 250, width: 250, crop: :fill %>
-          </div>
-          <div class="product-info">
-            <h2> <%= artwork.name %> </h2>
-            <p class="price"> <%= humanized_money_with_symbol(artwork.price) %></p>
           </div>
         <% end %>
       </div>
@@ -19,10 +19,6 @@
         <%= link_to artwork_path(artwork) do %>
           <div>
             <%= cl_image_tag artwork.photos.first.key, height: 250, width: 250, crop: :fill %>
-          </div>
-          <div class="product-info">
-            <h2> <%= artwork.name %> </h2>
-            <p class="price"> <%= humanized_money_with_symbol(artwork.price) %></p>
           </div>
         <% end %>
         <div class="sold">

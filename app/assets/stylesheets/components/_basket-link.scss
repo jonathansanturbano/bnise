@@ -1,7 +1,7 @@
 .basket-setter {
-  position: sticky;
-  top: 103px;
-  z-index: 2;
+  position: absolute;
+  top: 70px;
+  right: 13px;
   margin-top: -40px;
   display: flex;
   justify-content: flex-end;
@@ -9,16 +9,14 @@
 }
 
 .basket-link {
-  text-align: right;
   padding-right: 1rem;
-  background-color: darkgray;
+  background-color: rgba(210, 210, 210, 0.4);
   width: fit-content;
   padding: 0.4rem;
-  font-weight: bold;
-  text-decoration: underline double;
-  font-style: oblique;
   border: 1px black solid;
-  box-shadow: 1px 2px 1px;
+  color: black;
+  box-shadow: 1px 2px 1px grey;
+  border-radius: 2px;
 }
 
 @media (min-width: 767px) {

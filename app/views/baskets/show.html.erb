@@ -7,9 +7,9 @@
   <h1 class="my-title">Your Basket</h1>
 
   <% if @basket.basketItems.count == 1 %>
-    <div class=cards-single>
+    <div class="cards cards-single">
   <% else  %>
-    <div class="cards-double">
+    <div class="cards cards-double">
   <% end %>
 
     <% @basket.basketItems.each do |basketItem| %>
@@ -17,7 +17,7 @@
         <div>
           <%= cl_image_tag basketItem.artwork.photos.first.key, height: 250, width: 250, crop: :fill %>
         </div>
-        <div class="product-info">
+        <div class="artwork-title">
           <h2> <%= basketItem.artwork.name %> </h2>
           <p class="price"> <%= humanized_money_with_symbol(basketItem.artwork.price) %></p>
         </div>
@@ -30,7 +30,7 @@
     <% end %>
   </div>
 
-    <div class="d-flex justify-content-center align-items-center m-4">
+    <div class="d-flex justify-content-center align-items-center mb-4">
       <%= form_tag orders_path do %>
         <%= submit_tag 'Purchase', class: 'mybutton' %>
       <% end %>

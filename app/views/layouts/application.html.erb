@@ -5,9 +5,10 @@
   </head>
   <body>
     <%= render 'layouts/navbar' unless controller_name == "payments" && action_name =="show" %>
-    <%= render 'layouts/basket' %>
-    <div class="container" style="display: flex; justify-content: center; padding-top: 1rem; min-height: calc(100vh - 200px)">
-      <%= yield %>
+    <div class="container" style="min-height: calc(100vh - 276px)">
+      <div class="page-setter">
+        <%= yield %>
+      </div>
     </div>
     <%= render 'layouts/footer' %>
   </body>

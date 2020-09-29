@@ -9,6 +9,8 @@ ActiveAdmin.register Artwork do
        f.input :name
        f.input :description
        f.input :price
+       f.input :dimensions
+       f.input :material
        f.input :sold
      end
 

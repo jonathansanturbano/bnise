@@ -31,7 +31,9 @@ import { initSwiper } from '../components/swiper';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  initModalOnClick();
+  if(document.getElementById("dropdown")) {
+    initModalOnClick()
+  };
   if(document.querySelector(".swiper-container")) {
     initSwiper();
   };
