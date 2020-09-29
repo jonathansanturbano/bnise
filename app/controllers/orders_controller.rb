@@ -37,6 +37,9 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: line_items,
+      shipping_address_collection: {
+          allowed_countries: ['FR'],
+        },
       success_url: order_url(order),
       cancel_url: basket_url(@basket)
     )
