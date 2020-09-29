@@ -20,7 +20,7 @@ ActiveAdmin.register Artwork do
      f.actions
    end
 
-   permit_params :name, :description, :price, :sold, photos: []
+   permit_params :name, :description, :price, :dimensions, :material, :sold, photos: []
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
