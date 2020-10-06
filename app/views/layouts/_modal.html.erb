@@ -1,0 +1,19 @@
+<div class="bmodal">
+  <div class="modal-content">
+    <div class="close">
+      +
+    </div>
+    <h2 style="position: relative; top: -30px; font-style: italic; padding-bottom: 3rem">Dare to be <br><strong>Dope</strong></h2>
+    <div class="links">
+
+      <%= link_to "Artworks", artworks_path %>
+      <%= link_to "About", about_path %>
+      <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, method: "delete" %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path %>
+      <% end %>
+      <%= link_to "Contact", new_contact_path %>
+    </div>
+  </div>
+</div>

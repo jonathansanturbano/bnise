@@ -1,5 +1,5 @@
-<div class="row w-100">
-  <div class="col-sm-12 col-lg-6 pb-3">
+<div>
+  <div class="col-sm-12 pb-3">
 
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -14,34 +14,15 @@
 
   </div>
 
-  <div class="text-center col-sm-12 col-lg-6 artwork-setter">
-    <% if @artwork.sold == false %>
-      <h1 class="pb-3"><%= @artwork.name %> <span>(<%= humanized_money_with_symbol(@artwork.price) %>)</span></h1>
-    <% else %>
-      <h1 class="pb-3">
-        <div class="sold-show">
-          <%= @artwork.name %>
-          <span>
-            (<%= humanized_money_with_symbol(@artwork.price) %>)
-          </span>
-        </div>
-        SOLD
-      </h1>
-    <% end %>
-    <p class="artwork-description"><%= @artwork.description %></p>
-    <div class="artwork-elements">
-      <div class="artwork-element">
-        <h3>Dimensions</h3>
+  <div class="text-center col-sm-12 artwork-setter">
+        <p><%= @artwork.name %></p>
         <p><%= @artwork.dimensions %></p>
-      </div>
-      <div class="artwork-element">
-        <h3>Material</h3>
         <p><%= @artwork.material %></p>
-      </div>
+        <p><%= humanized_money_with_symbol(@artwork.price) %></p>
     </div>
 
     <% if (@artwork.sold == false && !user_signed_in?) || (user_signed_in? && @artwork.sold == false && !@basket.basketItems.find_by(artwork: @artwork)) %>
-      <div class="my-4">
+      <div class="my-4 text-center">
         <%= form_tag artwork_basket_items_path(@artwork) do %>
           <%= submit_tag 'Add to Basket', class: 'mybutton' %>
         <% end %>

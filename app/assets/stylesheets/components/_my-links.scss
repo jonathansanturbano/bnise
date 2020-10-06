@@ -1,7 +1,6 @@
 .my-links {
   display: flex;
   justify-content: space-evenly;
-  text-decoration: underline;
   font-style: italic;
   padding: 1.5rem 0;
   width: 100%;
@@ -9,5 +8,12 @@
 
   & > a {
     font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .my-links {
+    width: 60%;
+    margin: auto;
   }
 }

@@ -1,34 +1,14 @@
 <div class="header">
   <div class="bnavbar">
-    <%= link_to root_path do %>
-      <%= image_tag("white_logo_cropped.png", size: "49x70", alt: "BNI$E logo") %>
+    <% if controller_name == "contacts" %>
+      <div>
+        <%= image_tag('white_logo_cropped.png', class: "return-logo") %>
+      </div>
     <% end %>
     <%= link_to root_path do %>
-      <h1 id="brand">BNI$E</h1>
+      <h1 id="brand">B-NI$E</h1>
     <% end %>
-    <!--   <div id="dropdown">
-      <i class="fas fa-align-justify" style="font-size: 20px"></i>
-    </div> -->
     <%= render 'layouts/basket' %>
   </div>
   <%= render 'layouts/links' %>
-</div>
-
-
-<div class="bmodal">
-  <div class="modal-content">
-    <div class="close">
-      +
-    </div>
-    <h2 style="position: relative; top: -30px; font-style: italic; padding-bottom: 3rem">Dare to be <br><strong>Dope</strong></h2>
-    <div class="links">
-
-      <%= link_to "Artworks", artworks_path %>
-      <%= link_to "About", about_path %>
-      <% if user_signed_in? %>
-        <%= link_to "Logout", destroy_user_session_path, method: "delete" %>
-      <% end %>
-      <%= link_to "Contact", new_contact_path %>
-    </div>
-  </div>
 </div>

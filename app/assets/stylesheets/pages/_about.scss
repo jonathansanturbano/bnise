@@ -5,6 +5,19 @@
 
 @media (min-width: 768px) and (orientation: landscape) {
   .about-image {
-    width: 65%;
+    width: 45%;
   }
+}
+
+.artist-setter {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.artist-description {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
 }

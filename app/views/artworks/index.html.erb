@@ -15,15 +15,9 @@
         <% end %>
       </div>
     <% else %>
-      <div class="card">
-        <%= link_to artwork_path(artwork) do %>
-          <div>
-            <%= cl_image_tag artwork.photos.first.key, height: 250, width: 250, crop: :fill %>
+      <div class="card" style="width: 250px; height: 250px">
+          <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(166, 200, 237, 0.5), rgba(166, 200, 237, 0.5)), url('<%= cl_image_path artwork.photos.first.key, height: 250, width: 250, crop: :fill %>');">
           </div>
-        <% end %>
-        <div class="sold">
-          <p style="margin: 0">SOLD</p>
-        </div>
       </div>
     <% end %>
   <% end %>

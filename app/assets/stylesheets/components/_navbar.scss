@@ -11,17 +11,6 @@
   height: 100px;
   justify-content: center;
   align-items: center;
-  border-bottom: 2.6px rgba(110, 110, 110, 0.1) solid;
-
-  & > a:first-child {
-    position: absolute;
-    left: 14px;
-    top: 16px;
-  }
-
-  & > a:nth-child(2) {
-    margin: auto;
-  }
 }
 
 i {
