@@ -22,7 +22,7 @@
     </div>
 
     <% if (@artwork.sold == false && !user_signed_in?) || (user_signed_in? && @artwork.sold == false && !@basket.basketItems.find_by(artwork: @artwork)) %>
-      <div class="my-4 text-center">
+      <div class="mt-2 mb-4 text-center">
         <%= form_tag artwork_basket_items_path(@artwork) do %>
           <%= submit_tag 'Add to Basket', class: 'mybutton' %>
         <% end %>
@@ -30,7 +30,7 @@
     <% end %>
 
     <% if user_signed_in? && @basket.basketItems.find_by(artwork: @artwork) %>
-      <div class="my-4">
+      <div class="mt-2 mb-4">
         <%= form_tag(basket_item_path(@basket.basketItems.find_by(artwork: @artwork)), method: 'delete') do %>
           <%= submit_tag 'Remove', class: 'mybutton' %>
         <% end %>

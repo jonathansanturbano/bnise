@@ -1,12 +1,11 @@
 <div class="header">
   <div class="bnavbar">
-    <% if controller_name == "contacts" %>
-      <div>
-        <%= image_tag('white_logo_cropped.png', class: "return-logo") %>
-      </div>
-    <% end %>
-    <%= link_to root_path do %>
-      <h1 id="brand">B-NI$E</h1>
+    <% if request.original_fullpath != "/contacts/new" %>
+      <%= link_to root_path do %>
+        <h1 id="brand">B-NI$E</h1>
+      <% end %>
+    <% else %>
+      <h1 id="brand" style="letter-spacing: inherit;">HIT ME UP</h1>
     <% end %>
     <%= render 'layouts/basket' %>
   </div>
