@@ -4,6 +4,7 @@
       <%= link_to basket_path(@basket) do %>
         <div class="basket-link">
           <i class="fas fa-shopping-cart"></i>
+          <%= @basket.basketItems.count %>
         </div>
       <% end %>
   </div>

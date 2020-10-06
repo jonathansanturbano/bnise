@@ -30,7 +30,7 @@
     <% end %>
 
     <% if user_signed_in? && @basket.basketItems.find_by(artwork: @artwork) %>
-      <div class="mt-2 mb-4">
+      <div class="mt-2 mb-4 text-center">
         <%= form_tag(basket_item_path(@basket.basketItems.find_by(artwork: @artwork)), method: 'delete') do %>
           <%= submit_tag 'Remove', class: 'mybutton' %>
         <% end %>

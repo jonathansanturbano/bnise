@@ -5,61 +5,62 @@
   margin-bottom: 2rem;
   margin: auto;
   width: fit-content;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
+  grid-template-columns: 1fr;
 }
 
 // Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
+// @media (min-width: 100px) and (max-width: 575px) {
 
-  .cards-single {
-    grid-template-columns: 1fr;
-  }
+//   .cards-single {
+//     grid-template-columns: 1fr;
+//   }
 
-  .cards-multiple {
-    grid-template-columns: 1fr;
-  }
-}
+//   .cards-multiple {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards-single {
-    grid-template-columns: 1fr;
-  }
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//   .cards-single {
+//     grid-template-columns: 1fr;
+//   }
 
-  .cards-multiple {
-    grid-template-columns: 1fr;
-  }
-}
+//   .cards-multiple {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards-single {
-    grid-template-columns: 1fr;
-  }
-  .cards-double {
-    grid-template-columns: 1fr;
-  }
-}
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   .cards-single {
+//     grid-template-columns: 1fr;
+//   }
+//   .cards-double {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards-single {
-    grid-template-columns: 1fr;
-  }
-  .cards-double {
-    grid-template-columns: 1fr;
-  }
-}
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .cards-single {
+//     grid-template-columns: 1fr;
+//   }
+//   .cards-double {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards-single {
-    grid-template-columns: 1fr;
-  }
-  .cards-double {
-    grid-template-columns: 1fr;
-  }
-}
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .cards-single {
+//     grid-template-columns: 1fr;
+//   }
+//   .cards-double {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
 .card{
   text-align: center;

@@ -23,7 +23,7 @@
         </div>
         <div class="item-delete">
           <%= link_to basket_item_path(basketItem), method: "delete" do %>
-            <i class="fas fa-trash" style="font-size: 1.5rem; color: black"></i>
+            <i class="far fa-trash-alt" style="font-size: 1.5rem; color: black"></i>
           <% end %>
         </div>
       </div>
@@ -32,7 +32,7 @@
 
     <div class="d-flex justify-content-center align-items-center mb-4">
       <%= form_tag orders_path do %>
-        <%= submit_tag 'Purchase', class: 'mybutton' %>
+        <%= submit_tag 'Checkout', class: 'mybutton' %>
       <% end %>
     </div>
 

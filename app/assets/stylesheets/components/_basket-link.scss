@@ -1,7 +1,7 @@
 .basket-setter {
   position: absolute;
-  top: 70px;
-  right: 13px;
+  top: 125px;
+  right: 4px;
   margin-top: -40px;
   display: flex;
   justify-content: flex-end;
@@ -20,8 +20,12 @@
 }
 
 @media (min-width: 767px) {
+  .basket-setter {
+    top: 70px;
+    right: 13px;
+  }
   .basket-link {
-    margin-right: 2rem;
+    margin-right: 1rem;
     font-size: 1.2rem;
   }
 }
