@@ -16,14 +16,14 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 
 puts "Creating Artworks..."
 
-ms1 = Sculpture.new(name: "My Sculpture", description: "Get the best of America worst prison. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non risus volutpat, malesuada dui non, suscipit nisl. Donec consequat feugiat ante quis euismod. Nam faucibus commodo turpis, id interdum ligula. Aliquam tortor tortor, porttitor a aliquam in, ornare sit amet orci. Praesent fringilla orci ut bibendum viverra. Maecenas dolor est, sollicitudin non ante vitae, porttitor sollicitudin felis. Nunc feugiat urna id nisl tincidunt, at egestas nunc accumsan. Donec quis ultricies est, id posuere velit.", price: 150)
+ms1 = Sculpture.new(name: "My Sculpture", price: 150)
 my_1 = File.open(Rails.root + "app/assets/images/my_sculpture.jpg")
 ms1.photos.attach(io: my_1, filename: 'my-1.jpg', content_type: 'image/jpg')
 my_2 = URI.open("https://images.unsplash.com/photo-1543536833-6d65fcc64f66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
 ms1.photos.attach(io: my_2, filename: 'my-2.jpg', content_type: 'image/jpg')
 ms1.save
 
-ms2 = Sculpture.new(name: "Your Sculpture", description: "Get the best of America worst prison. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non risus volutpat, malesuada dui non, suscipit nisl. Donec consequat feugiat ante quis euismod. Nam faucibus commodo turpis, id interdum ligula. Aliquam tortor tortor, porttitor a aliquam in, ornare sit amet orci. Praesent fringilla orci ut bibendum viverra. Maecenas dolor est, sollicitudin non ante vitae, porttitor sollicitudin felis. Nunc feugiat urna id nisl tincidunt, at egestas nunc accumsan. Donec quis ultricies est, id posuere velita.", price: 180)
+ms2 = Sculpture.new(name: "Your Sculpture", price: 180)
 friends_1 = File.open(Rails.root + "app/assets/images/your_sculpture.jpg")
 ms2.photos.attach(io: friends_1, filename: 'friends-1.jpg', content_type: 'image/jpg')
 friends_2 = URI.open("https://live.staticflickr.com/1428/5112096481_b7166a86bb_b.jpg")
@@ -32,7 +32,7 @@ friends_3 = URI.open("https://i.pinimg.com/originals/31/33/6b/31336b054c49b994f5
 ms2.photos.attach(io: friends_3, filename: 'friends-3.jpg', content_type: 'image/jpg')
 ms2.save
 
-ms3 = Sculpture.new(name: "Our Sculpture", description: "Get the best of America worst prison. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non risus volutpat, malesuada dui non, suscipit nisl. Donec consequat feugiat ante quis euismod. Nam faucibus commodo turpis, id interdum ligula. Aliquam tortor tortor, porttitor a aliquam in, ornare sit amet orci. Praesent fringilla orci ut bibendum viverra. Maecenas dolor est, sollicitudin non ante vitae, porttitor sollicitudin felis. Nunc feugiat urna id nisl tincidunt, at egestas nunc accumsan. Donec quis ultricies est, id posuere velitb.", price: 300)
+ms3 = Sculpture.new(name: "Our Sculpture", price: 300)
 got_1 = File.open(Rails.root + "app/assets/images/our_sculpture.jpg")
 ms3.photos.attach(io: got_1, filename: 'got-1.jpg', content_type: 'image/jpg')
 got_2 = URI.open("https://static.boredpanda.com/blog/wp-content/uploads/2015/06/game-of-thrones-real-life-locations-25__880.jpg")
@@ -41,7 +41,7 @@ got_3 = URI.open("https://www.telegraph.co.uk/content/dam/Travel/Destinations/Eu
 ms3.photos.attach(io: got_3, filename: 'got-3.jpg', content_type: 'image/jpg')
 ms3.save
 
-ms4 = Sculpture.new(name: "Their Sculpture", description: "Get the best of America worst prison. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non risus volutpat, malesuada dui non, suscipit nisl. Donec consequat feugiat ante quis euismod. Nam faucibus commodo turpis, id interdum ligula. Aliquam tortor tortor, porttitor a aliquam in, ornare sit amet orci. Praesent fringilla orci ut bibendum viverra. Maecenas dolor est, sollicitudin non ante vitae, porttitor sollicitudin felis. Nunc feugiat urna id nisl tincidunt, at egestas nunc accumsan. Donec quis ultricies est, id posuere velitc.", price: 350)
+ms4 = Sculpture.new(name: "Their Sculpture", price: 350)
 titanic_1 = File.open(Rails.root + "app/assets/images/their_sculpture.jpg")
 ms4.photos.attach(io: titanic_1, filename: 'titanic-1.jpg', content_type: 'image/jpg')
 titanic_2 = URI.open("https://images.unsplash.com/photo-1420496401585-7f22ce8b8b8a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
