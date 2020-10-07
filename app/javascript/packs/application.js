@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { initModalOnClick } from '../components/modal';
 import { initSwiper } from '../components/swiper';
+import { timeOut } from '../components/timeout'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,5 +37,8 @@ document.addEventListener('turbolinks:load', () => {
   };
   if(document.querySelector(".swiper-container")) {
     initSwiper();
+  };
+  if(window.location.href.includes("payments")) {
+    timeOut();
   };
 });
