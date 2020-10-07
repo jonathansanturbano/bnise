@@ -16,5 +16,9 @@ Rails.application.routes.draw do
   end
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
+  get '/404', to: "errors#not_found"
+  get '/422', to: "errors#unacceptable"
+  get '/404', to: "errors#server_errors"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
