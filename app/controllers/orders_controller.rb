@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
     else
       a = "is" if sold_artworks.count == 1
       a = "are" if sold_artworks.count > 1
-      redirect_to basket_path(@basket), notice: "Sorry #{sold_artworks.join(',')} #{a} gone}"
+      redirect_to basket_path(@basket), notice: "Sorry, #{sold_artworks.join(',')} #{a} gone."
     end
   end
 
