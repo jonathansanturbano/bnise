@@ -56,9 +56,9 @@ class OrdersController < ApplicationController
       order.update(checkout_session_id: session.id)
       redirect_to new_order_payment_path(order), notice: "You'll be redirected to your basket if inactive for 5 minutes."
     else
-      a = "is" if sold_arts.count == 1
-      a = "are" if sold_arts.count > 1
-      redirect_to basket_path(@basket), notice: "Sorry #{arts.join(',')} #{a} gone}"
+      a = "is" if sold_artworks.count == 1
+      a = "are" if sold_artworks.count > 1
+      redirect_to basket_path(@basket), notice: "Sorry #{sold_artworks.join(',')} #{a} gone}"
     end
   end
 
