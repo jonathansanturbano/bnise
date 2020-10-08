@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     sold_artworks = []
 
     @basket.basketItems.each do |item|
-      sold_artworks << item.name && item.destroy if item.artwork.sold == true
+      sold_artworks << item.artwork.name && item.destroy if item.artwork.sold == true
     end
 
     if sold_artworks.empty?
@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
       )
 
       order.update(checkout_session_id: session.id)
-      redirect_to new_order_payment_path(order)
+      redirect_to new_order_payment_path(order), notice: "You'll be redirected to your basket if inactive for 5 minutes."
     else
       a = "is" if sold_arts.count == 1
       a = "are" if sold_arts.count > 1
