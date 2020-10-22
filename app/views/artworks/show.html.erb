@@ -18,7 +18,11 @@
         <p><%= @artwork.name %></p>
         <p><%= @artwork.dimensions %></p>
         <p><%= @artwork.material %></p>
-        <p><%= humanized_money_with_symbol(@artwork.price) %></p>
+        <% if (@artwork.sold == true) %>
+            <p style="color: rgb(200, 200, 200)"><%= humanized_money_with_symbol(@artwork.price) %></p>
+        <% else %>
+            <p><%= humanized_money_with_symbol(@artwork.price) %></p>
+        <% end %>
     </div>
 
     <% if (@artwork.sold == false && !user_signed_in?) || (user_signed_in? && @artwork.sold == false && !@basket.basketItems.find_by(artwork: @artwork)) %>
@@ -27,6 +31,8 @@
           <%= submit_tag 'Add to Basket', class: 'mybutton' %>
         <% end %>
       </div>
+    <% else %>
+      <p class="text-center" style="color: rgb(200, 200, 200)">SOLD</p>
     <% end %>
 
     <% if user_signed_in? && @basket.basketItems.find_by(artwork: @artwork) %>
