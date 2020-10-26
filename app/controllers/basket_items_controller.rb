@@ -1,6 +1,6 @@
 class BasketItemsController < ApplicationController
   def create
-    artwork = Artwork.find(params[:artwork_id])
+    artwork = Artwork.friendly.find(params[:artwork_id])
     BasketItem.create(artwork_id: artwork.id, basket_id: @basket.id)
     redirect_to basket_path(@basket)
   end
