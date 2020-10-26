@@ -1,4 +1,6 @@
 class Artwork < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
   has_many_attached :photos
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true

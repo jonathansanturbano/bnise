@@ -6,6 +6,6 @@ class ArtworksController < ApplicationController
   end
 
   def show
-    @artwork = Artwork.find(params[:id])
+    @artwork = Artwork.friendly.find(params[:id])
   end
 end
