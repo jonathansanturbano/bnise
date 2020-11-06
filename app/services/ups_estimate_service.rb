@@ -55,9 +55,9 @@ class UpsEstimateService
     response = HTTParty.post("https://onlinetools.ups.com/ship/v1/rating/Rate",
                 body: message.to_json,
                 headers: { 'Content-Type' => 'application/json',
-                           'AccessLicenseNumber' => '5D8C317D45FC05DD',
-                           'Password' => 'gLaGaffe1!',
-                           'Username' => 'jonathansanturba' })
+                           'AccessLicenseNumber' => ENV['UPS_ACCESS_NUMBER'],
+                           'Password' => ENV['UPS_PASSWORD'],
+                           'Username' => ENV['UPS_USERNAME'] })
 
     answer = JSON.parse(response.body)
     (answer["RateResponse"]["RatedShipment"]["TotalCharges"]["MonetaryValue"].to_f * 100).to_i
