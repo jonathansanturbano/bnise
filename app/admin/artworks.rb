@@ -11,6 +11,7 @@ ActiveAdmin.register Artwork do
     column :material
     column "Weight (in kg)", :weight
     column :sold
+    actions
   end
 
   form do |f|
