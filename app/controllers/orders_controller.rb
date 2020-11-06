@@ -8,6 +8,19 @@ class OrdersController < ApplicationController
 
   def create
 
+    total_weight = 0.0
+
+    @basket.basketItems.each do |item|
+      total_weight += item.artwork.weight
+    end
+
+    ups_rate_cents = UpsEstimateService.new({
+                                              address: params[:address],
+                                              postal_code: params[:postal_code],
+                                              country_code: params[:country_code],
+                                              total_weight: total_weight
+                                            }).call
+
     sold_artworks = []
 
     @basket.basketItems.each do |item|
@@ -21,8 +34,10 @@ class OrdersController < ApplicationController
       total_price = 0
 
       @basket.basketItems.each do |item|
-        total_price += item.artwork.price
+        total_price += item.artwork.price_cents
       end
+
+      total_price = (total_price += ups_rate_cents).to_f / 100
 
       order = Order.find_by(basket: @basket)
 
@@ -42,6 +57,13 @@ class OrdersController < ApplicationController
         }
         line_items << new_item
       end
+
+      line_items << {
+        name: "UPS Shipping",
+        amount: ups_rate_cents,
+        currency: 'eur',
+        quantity: 1
+      }
 
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],

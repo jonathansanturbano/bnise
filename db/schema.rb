@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_173205) do
+ActiveRecord::Schema.define(version: 2020_11_06_142616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_173205) do
     t.string "dimensions"
     t.string "material"
     t.string "slug"
+    t.float "weight"
     t.index ["slug"], name: "index_artworks_on_slug", unique: true
   end
 

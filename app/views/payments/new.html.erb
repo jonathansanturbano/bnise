@@ -17,8 +17,9 @@
       <% end %>
       </div>
   <div class="price-total">
-    <p>TOTAL</p>
-    <p><%= humanized_money_with_symbol @order.amount %></p>
+    <h3>TOTAL</h3>
+    <h3><%= humanized_money_with_symbol @order.amount %></h3>
+    <p style="font-size: 14px; font-style: italic">(incl. UPS charge of €<%= @ups_rate %>)</p>
   </div>
 
   <button id="pay" class="mybutton my-4">Pay</button>

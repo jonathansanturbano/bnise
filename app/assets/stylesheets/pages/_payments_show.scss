@@ -16,8 +16,9 @@
 .price-total {
   font-weight: bold;
 
-  & > p:first-child {
+  & > h3:first-child {
     text-decoration: underline double;
+    margin: 0;
   }
 
   & > p {

@@ -26,7 +26,9 @@ require("channels")
 import "bootstrap";
 import { initModalOnClick } from '../components/modal';
 import { initSwiper } from '../components/swiper';
-import { timeOut } from '../components/timeout'
+import { timeOut } from '../components/timeout';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initCheckout } from '../components/init_checkout';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -41,4 +43,9 @@ document.addEventListener('turbolinks:load', () => {
   if(window.location.href.includes("payments")) {
     timeOut();
   };
+
+  if(document.querySelector("#address-input")) {
+    initAutocomplete();
+    initCheckout();
+  }
 });

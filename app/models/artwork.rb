@@ -6,5 +6,6 @@ class Artwork < ApplicationRecord
   validates :price, presence: true
   validates :dimensions, presence: true
   validates :material, presence: true
+  validates :weight, presence: true
   monetize :price_cents
 end

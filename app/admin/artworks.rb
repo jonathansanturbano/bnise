@@ -1,14 +1,24 @@
 ActiveAdmin.register Artwork do
 
   filter :price
-  filter :created_at
   filter :sold
+
+  index do
+    selectable_column
+    column :name
+    column :price
+    column :dimensions
+    column :material
+    column "Weight (in kg)", :weight
+    column :sold
+  end
 
   form do |f|
      f.inputs "Artwork Information" do
        f.input :name
        f.input :price
        f.input :dimensions
+       f.input :weight, label: "Weight (in kg)"
        f.input :material
        f.input :sold
      end
@@ -19,6 +29,6 @@ ActiveAdmin.register Artwork do
      f.actions
    end
 
-   permit_params :name, :price, :dimensions, :material, :sold, photos: []
+   permit_params :name, :price, :dimensions, :weight, :material, :sold, photos: []
 
 end
