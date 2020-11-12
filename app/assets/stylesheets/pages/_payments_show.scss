@@ -14,15 +14,8 @@
 }
 
 .price-total {
-  font-weight: bold;
-
-  & > h3:first-child {
-    text-decoration: underline double;
-    margin: 0;
-  }
-
-  & > p {
-    margin: 0;
+  & > div:last-child > p:last-child {
+    font-weight: bold;
   }
 }
 

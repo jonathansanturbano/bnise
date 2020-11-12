@@ -4,13 +4,15 @@
 
   <% if @basket.basketItems.count > 0 %>
 
-  <h1 class="my-title">Your Basket</h1>
+<!--   <h1 class="my-title">Your Basket</h1> -->
 
   <% if @basket.basketItems.count == 1 %>
     <div class="cards cards-single cards__basket">
   <% else  %>
     <div class="cards cards-double cards__basket">
   <% end %>
+
+  <p style="text-align: center; text-decoration: underline">1. Basket</p>
 
     <% @basket.basketItems.each do |basketItem| %>
       <div class="card">
@@ -30,11 +32,10 @@
     <% end %>
   </div>
 
-  <p style="font-weight: bold; font; text-decoration: underline; text-align: center">We only deliver in Europe for the time being.</p>
-  <p style="text-align: center">Please provide your address to see if delivery to your address is available and to give an estimated UPS quote.</p>
+  <p style="text-align: center; text-decoration: underline">2. Shipping</p>
 
   <%= form_tag orders_path, class: "custom-form" do %>
-    <%= text_field_tag :address, nil, placeholder: "Where do you live?", class: "text-center", id: "address-input" %>
+    <%= text_field_tag :address, nil, placeholder: "Address", class: "text-center", id: "address-input" %>
     <%= text_field_tag :address_2, nil, placeholder: "Street name and number", class: "text-center", id: "address2-input" %>
     <div class="form-inline-elements">
       <%= text_field_tag :city, nil, placeholder: "City", class: "text-center", id: "city-input" %>
@@ -43,6 +44,8 @@
     <%= hidden_field_tag :country_code, nil, id: "country-input" %>
     <%= submit_tag 'Checkout', class: 'mybutton mt-3', disabled: true %>
   <% end %>
+
+  <p style="text-align: center; font-style: italic; font-size: 12px;">*Shipping restricted to Europe.</p>
 
  <!--    <div class="form-group">
       <label for="form-address">Address*</label>

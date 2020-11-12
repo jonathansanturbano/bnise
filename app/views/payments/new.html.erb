@@ -2,7 +2,7 @@
 
 <div class="text-center">
 
-  <h1 class="my-title">Checkout summary</h1>
+  <p style="text-align: center; text-decoration: underline">3. Summary</h1>
 
       <% if @basket.basketItems.count == 1 %>
         <div class= "cards-single">
@@ -17,9 +17,14 @@
       <% end %>
       </div>
   <div class="price-total">
-    <h3>TOTAL</h3>
-    <h3><%= humanized_money_with_symbol @order.amount %></h3>
-    <p style="font-size: 14px; font-style: italic">(incl. UPS charge of €<%= @ups_rate %>)</p>
+    <div class="d-flex justify-content-between">
+      <p>Shipping:</p>
+      <p>€<%= @ups_rate %></p>
+    </div>
+    <div class="d-flex justify-content-between">
+      <p>Total:</p>
+      <p><%= humanized_money_with_symbol @order.amount %></p>
+    </div>
   </div>
 
   <button id="pay" class="mybutton my-4">Pay</button>
