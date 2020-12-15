@@ -7,47 +7,58 @@ class UpsEstimateService
   end
 
   def call
-    message = {
-                 RateRequest: {
-                    Request: {
-                       SubVersion: '1703'
-                    },
-                    Shipment: {
-                       Shipper: {
-                          Address: {
-                             AddressLine: '36 rue Doudeauville',
-                             PostalCode: '75018',
-                             CountryCode: 'FR'
-                          }
-                       },
-                       ShipTo: {
-                          Address: {
-                            AddressLine: @address,
-                            PostalCode: @postal_code,
-                            CountryCode: @country_code.upcase
-                          }
-                       },
-                       Service: {
-                          Code: '11'
-                       },
-                       ShipmentTotalWeight: {
+    message ={
+                RateRequest: {
+                  Request: {
+                    SubVersion: '1703'
+                  },
+                  PickupType:{
+                    Code: "06"
+                  },
+                  Shipment: {
+                    Shipper: {
+                      Address: {
+                        AddressLine: '36 rue Doudeauville',
+                          PostalCode: '75018',
+                          CountryCode: 'FR'
+                        }
+                      },
+                      ShipTo: {
+                        Address: {
+                          AddressLine: @address,
+                          PostalCode: @postal_code,
+                          CountryCode: @country_code.upcase
+                        }
+                      },
+                      Service: {
+                        Code: '11'
+                      },
+                      ShipmentTotalWeight: {
+                        UnitOfMeasurement: {
+                          Code: 'KGS',
+                          Description: 'Kilograms'
+                        }
+                      },
+                      Package: {
+                        PackagingType: {
+                          Code: '02',
+                          Description: 'Package'
+                        },
+                        Dimensions: {
                           UnitOfMeasurement: {
-                             Code: 'KGS',
-                             Description: 'Kilograms'
-                          }
-                       },
-                       Package: {
-                          PackagingType: {
-                             Code: '02',
-                             Description: 'Package'
+                            Code: 'CM'
                           },
-                          PackageWeight: {
-                             UnitOfMeasurement: {
-                                Code: 'KGS'
-                             },
-                             Weight: @total_weight.to_s
-                          }
-                       }
+                          Length: "30",
+                          Width: "30",
+                          Height: "30"
+                        },
+                        PackageWeight: {
+                          UnitOfMeasurement: {
+                            Code: 'KGS'
+                          },
+                          Weight: @total_weight.to_s
+                        }
+                      }
                     }
                  }
                }
@@ -60,6 +71,6 @@ class UpsEstimateService
                            'Username' => ENV['UPS_USERNAME'] })
 
     answer = JSON.parse(response.body)
-    (answer["RateResponse"]["RatedShipment"]["TotalCharges"]["MonetaryValue"].to_f * 100).to_i
+    (answer["RateResponse"]["RatedShipment"]["TotalCharges"]["MonetaryValue"].to_f * 120).to_i + 1
   end
 end

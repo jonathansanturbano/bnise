@@ -6,4 +6,13 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def legal
+  end
+
+  def sales_conditions
+  end
+
+  def privacy_policy
+  end
 end

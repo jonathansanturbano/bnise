@@ -8,11 +8,7 @@ class OrdersController < ApplicationController
 
   def create
 
-    total_weight = 0.0
-
-    @basket.basketItems.each do |item|
-      total_weight += item.artwork.weight
-    end
+    total_weight = calculate_weight
 
     ups_rate_cents = UpsEstimateService.new({
                                               address: params[:address],
@@ -104,10 +100,24 @@ class OrdersController < ApplicationController
       order.update(checkout_session_id: session.id)
       redirect_to new_order_payment_path(order), notice: "You'll be redirected to your basket if inactive for 5 minutes."
     else
-      a = "is" if sold_artworks.count == 1
-      a = "are" if sold_artworks.count > 1
-      redirect_to basket_path(@basket), notice: "Sorry, #{sold_artworks.join(',')} #{a} gone."
+      available_purchase(sold_artworks)
     end
+  end
+
+  private
+
+  def calculate_weight
+    cumulated_weight = 0.0
+    @basket.basketItems.each do |item|
+      cumulated_weight += item.artwork.weight
+    end
+    cumulated_weight
+  end
+
+  def available_purchase(artworks)
+    a = "is" if artworks.count == 1
+    a = "are" if artworks.count > 1
+    redirect_to basket_path(@basket), notice: "Sorry, #{artworks.join(',')} #{a} gone."
   end
 
 end

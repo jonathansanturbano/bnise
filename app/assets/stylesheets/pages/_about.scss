@@ -3,9 +3,41 @@
   padding-bottom: 2rem;
 }
 
+.legal_links {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: space-between;
+
+  a {
+    white-space: nowrap;
+    margin: 0.5rem auto;
+  }
+}
+
+.legal {
+
+  h3 {
+    margin-top: 8px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
 @media (min-width: 768px) and (orientation: landscape) {
   .about-image {
     width: 45%;
+  }
+
+  .legal_links {
+    flex-direction: row;
+
+    a {
+      width: 140px;
+    }
   }
 }
 

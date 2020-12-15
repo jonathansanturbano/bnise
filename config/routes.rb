@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#welcome'
   get 'about', to: 'pages#about'
+  get 'legal', to: 'pages#legal'
+  get 'sales-conditions', to: 'pages#sales_conditions'
+  get 'privacy-policy', to: 'pages#privacy_policy'
   resources :artworks do
     resources :basket_items, only: :create
   end
