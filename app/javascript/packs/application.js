@@ -29,11 +29,13 @@ import { initSwiper } from '../components/swiper';
 import { timeOut } from '../components/timeout';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initCheckout } from '../components/init_checkout';
+import { cookieInfo } from '../components/cookie_banner';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
+  cookieInfo();
   if(document.getElementById("dropdown")) {
     initModalOnClick()
   };
