@@ -42,6 +42,9 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+# Meta tags helper
+gem 'meta-tags'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
