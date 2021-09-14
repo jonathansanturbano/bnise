@@ -13,7 +13,7 @@ module ApplicationHelper
         title: 'BNI$E',
         reverse: true,
         separator: '|',
-        description: 'South African that sculpts and colorizes faces made out of clay in Paris',
+        description: 'Paris based South African artist that molds and colorizes faces made out of clay',
         keywords: 'art, artist, clay, Paris',
         canonical: request.original_url,
         noindex: !Rails.env.production?,
@@ -24,7 +24,7 @@ module ApplicationHelper
         og: {
           site_name: 'BNI$E',
           title: 'BNI$E - Sculptures in Paris',
-          description: 'South African that sculpts and colorizes faces made out of clay in Paris',
+          description: 'Paris based South African artist that molds and colorizes faces made out of clay',
           type: 'website',
           url: request.original_url,
           image: image_url('four_heads_logo.jpg')
